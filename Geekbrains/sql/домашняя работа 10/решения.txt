@@ -1,0 +1,51 @@
+1. В базе данных Redis подберите коллекцию для подсчета посещений с определенных IP-адресов.
+
+Используем hash
+Создаем коллекцию id и заполняем ее данными
+> HSET id 1 "192.168.5.0"
+> HSET id 2 "192.168.5.5"
+> HSET id 3 "192.168.5.10"
+
+Получаем какой-нибудь элемент
+
+> HGET id 2
+
+"192.168.5.5"
+
+Получаем число элементов
+> HLEN id
+
+
+2. При помощи базы данных Redis решите задачу поиска имени пользователя по электронному адресу и наоброт, поиск электронного адреса пользователя по его имени.
+Создаем пробную базу hash с именами и адресами с дублированием крест накрест, как в одной из библиотек java-guava
+ HSET name_ip "Ivan" "192.168.5.10"
+ HSET name_ip "192.168.5.10" "Ivan" 
+ HSET name_ip "Petr" "192.168.5.20" 
+ HSET name_ip "192.168.5.20" "Petr" 
+ HSET name_ip "Sidor" "192.168.5.30"
+ HSET name_ip "192.168.5.30" "Sidor" 
+
+Получаем адрес по имени:
+HGET name_ip "Ivan"
+> "192.168.5.10"
+Получаем имя по адресу
+> HGET name_ip "192.168.5.20"
+"Petr"
+
+
+3. Организуйте хранение категорий и товарных позиций учебной базы данных shop в СУБД MongoDB.
+Создаем базу данных
+use shop;
+Явно создаем коллекцию
+db.createCollection("products")
+Добавляем данные по одному
+db.products.insertOne({"_id": 1, "name": "CPU_1", "description": "CPU", "price": 500, "catalog_id": 1, created_at: "2015-09-11 14-09-15", 
+updated_at: "2015-09-11 14-09-15"})
+db.products.insertOne({"_id": 2, "name": "Video_card_1", "description": "Video_card", "price": 850, "catalog_id": 3, created_at: "2015-09-11 14-18-15", 
+updated_at: "2015-09-11 14-22-15"})
+
+Явно создаем коллекцию
+db.createCollection("category")
+Добавляем Сразу много данных
+db.products.insertMany({"_id": 1, "name": "users"}, {"_id": 2, "name": "products"}, {"_id": 3, "name": "catalogs"}, {"_id": 4, "name": "orders"})
+

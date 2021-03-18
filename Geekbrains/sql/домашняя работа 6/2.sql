@@ -1,0 +1,16 @@
+START TRANSACTION;
+CREATE TEMPORARY TABLE limited (
+  id INT);
+INSERT INTO limited
+SELECT id
+FROM posts
+ORDER BY created_at DESC
+LIMIT 5;
+
+DELETE FROM posts
+WHERE id NOT IN (SELECT id FROM limited);
+DROP TEMPORARY TABLE limited;
+COMMIT;
+
+select *
+from posts;

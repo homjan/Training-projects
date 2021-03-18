@@ -1,0 +1,128 @@
+1. Создайте хранимую функцию hello(), которая будет возвращать приветствие, в зависимости от текущего времени суток. С 6:00 до 12:00 функция должна возвращать фразу "Доброе утро", с 12:00 до 18:00 функция должна возвращать фразу "Добрый день", с 18:00 до 00:00 — "Добрый вечер", с 00:00 до 6:00 — "Доброй ночи".
+
+
+DELIMITER //
+
+
+DROP FUNCTION IF EXISTS hello;
+
+CREATE FUNCTION hello ()
+
+RETURNS VARCHAR(255) DETERMINISTIC
+
+
+BEGIN
+ DECLARE hours INT;
+declare site_name VARCHAR(255);
+
+set hours = HOUR(CURRENT_TIME());
+
+if (hours>5 and hours <12)
+ 
+then set site_name ='Доброе утро';
+
+elseif (hours>11 and hours <18)
+ 
+then set site_name ='Добрый день';
+
+elseif (hours>17 and hours <24)
+ 
+then set site_name ='Добрый вечер';
+
+else
+
+set site_name ='Доброй ночи';
+
+end if;
+ 
+RETURN site_name;
+
+END//
+
+
+
+select hello ();
+
+2. В таблице products есть два текстовых поля: name с названием товара и description с его описанием. Допустимо присутствие обоих полей или одно из них. Ситуация, когда оба поля принимают неопределенное значение NULL неприемлема. Используя триггеры, добейтесь того, чтобы одно из этих полей или оба поля были заполнены. При попытке присвоить полям NULL-значение необходимо отменить операцию.
+
+DELIMITER //
+
+
+DROP TRIGGER IF EXISTS products_null;
+
+CREATE TRIGGER products_null
+ before INSERT ON products
+
+FOR EACH ROW
+
+BEGIN
+ 
+DECLARE cat_id INT;
+ 
+set cat_id =0;
+ 
+if ( (SELECT count(id) from products where new.name is null)>0 and 
+
+ (SELECT count(id) from products where new.desription is null)>0 )
+ 
+then set cat_id =1;
+
+end if;
+
+IF ( cat_id>0 ) 
+THEN
+  SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = "Error 45000";
+
+end if;
+
+END//
+
+
+
+INSERT INTO products VALUES (8, null, null, 100, null, null, null);
+
+
+
+select *
+from products;
+
+
+3. (по желанию) Напишите хранимую функцию для вычисления произвольного числа Фибоначчи. Числами Фибоначчи называется последовательность в которой число равно сумме двух предыдущих чисел. Вызов функции FIBONACCI(10) должен возвращать число 55.
+
+
+DELIMITER //
+
+
+DROP FUNCTION IF EXISTS fibonaschi;
+
+CREATE FUNCTION fibonaschi (number_f int)
+
+RETURNS INT DETERMINISTIC
+
+BEGIN
+ DECLARE n_1 INT; declare n_2 INT; declare n_sum INT;
+
+set n_1 = 0;
+
+set n_2 = 1;
+
+set n_sum = 0;
+
+WHILE number_f > 0 DO
+
+set n_sum = n_1 + n_2;
+
+set n_1=n_2;
+
+set n_2 = n_sum;
+
+SET number_f = number_f - 1;
+  
+END WHILE;
+ 
+RETURN n_1;
+
+END//
+
+
+select fibonaschi (10);

@@ -1,0 +1,34 @@
+1. Составьте список пользователей users, которые осуществили хотя бы один заказ (orders) в интернет-магазине.
+
+select users.id, count(user_id)
+
+from users INNER JOIN orders
+
+ ON users.id = orders.user_id
+
+GROUP BY users.id;
+
+
+2. Выведите список товаров products и разделов catalogs, который соответствует товару.
+
+select products.id, products.name, products.desription, 
+products.price, products.catalog_id, products.created_at, products.updated_at, catalogs.name
+
+from products join catalogs
+
+where products.catalog_id=catalogs.id;
+
+
+3. (по желанию) Есть таблица рейсов flights (id, from, to) и таблица городов cities (label, name). Поля from, to и label содержат английские названия городов, поле name — русское. Выведите список рейсов (flights) с русскими названиями городов.
+
+select flights.id, A.name as fromm, B.name as too
+
+from flights, cities as A, cities as B
+
+where flights.fromm = A.label AND
+ flights.too = B.label
+
+order by id;
+
+
+

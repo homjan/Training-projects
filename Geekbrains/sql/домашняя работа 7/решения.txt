@@ -1,0 +1,73 @@
+1. Создайте двух пользователей которые имеют доступ к базе данных shop. Первому пользователю shop_read должны быть доступны только запросы на чтение данных, второму пользователю shop — любые операции в пределах базы данных shop.
+
+use shop;
+
+DROP USER shop_read;
+
+CREATE USER shop_read IDENTIFIED WITH Sha256_password BY 'Pass_1234';
+
+
+GRANT SELECT ON * TO shop_read;
+// Выбираем все таблицы базы данных shop 
+select user() shop_read;
+
+Перезапускаем сессию, выбираем ранее созданные пользователь-пароль
+
+select * from catalogs;
+
+insert into catalogs values(6, 'Клавиатуры');
+
+Убеждаемся что прав не достаточно. (ошибка на команде insert)
+
+
+use shop;
+
+DROP USER shop1;
+
+CREATE USER shop1 IDENTIFIED WITH Sha256_password BY 'Pass_5678';
+
+GRANT all ON * TO shop1;
+
+select user() shop1;
+
+
+Перезапускаем сессию, выбираем ранее созданные пользователь-пароль
+
+insert into catalogs values(6, 'Клавиатуры');
+select * from catalogs;
+
+
+Убеждаемся что все работает. 
+
+
+2. (по желанию) Есть таблица (accounts), включающая в себя три столбца: id, name, password, которые содержат первичный ключ, имя пользователя и его пароль. Создайте представление username таблицы accounts, предоставляющее доступ к столбцам id и name. Создайте пользователя user_read, который бы не имел доступа к таблице accounts, однако мог извлекать записи из представления username.
+
+CREATE USER user_read IDENTIFIED WITH Sha256_password BY 'Pass_9_10';
+
+
+GRANT USAGE ON accounts TO user_read;
+
+GRANT SELECT ON username TO user_read;
+
+
+select user() user_read;
+
+Перезапускаем сессию, выбираем ранее созданные пользователь-пароль, пробуем разные команды
+
+select *
+from accounts; - не работает
+select *
+from username; - работает
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,47 @@
+1.
+Уникальность ключа, скорее всего, будет нарушена  и обновление будет не безопасно. Компилятор не даст этого сделать и выдаст ошибку. Однако конкретно эту ошибку можно "отключить", сняв флажок в edit - preferences - SQL editor - safe updates. Тогда решение
+
+update catalogs
+
+set name = 'empty'
+
+where name is null;
+
+2. create database media;
+use media;
+CREATE TABLE mediafiles(
+  link TEXT COMMENT 'Ссылка на файл',
+
+  name VARCHAR(255) COMMENT 'Название',
+
+  desription TEXT COMMENT 'Описание',
+
+  keywords VARCHAR(255) COMMENT 'Ключевые слова',
+
+  user VARCHAR(64) COMMENT 'пользователь'
+
+) COMMENT = 'Медиафайлы';
+
+3.
+Обновляем существующие строки в таблице cat из catalogs.
+
+update cat, catalogs
+
+set cat.name = catalogs.name
+
+where cat.id = catalogs.id; 
+
+Добавляем несуществующие строки.
+
+INSERT cat (id, name)
+
+SELECT id, name 
+
+FROM catalogs 
+
+WHERE NOT EXISTS 
+(SELECT name  
+	FROM cat
+            WHERE cat.id = catalogs.id
+ 
+                 AND cat.name=catalogs.name );

@@ -1,0 +1,36 @@
+1. update users
+set created_at = now(),
+updated_at = now;
+
+
+2.
+select id, name, birthday_at, 
+str_to_date(created_at, '%d.%m.%Y %H:%i') as created_at,
+
+str_to_date(updated_at, '%d.%m.%Y %H:%i') as updated_at
+
+from users;
+
+
+3.
+select *
+
+from storehouses_products
+
+order by
+
+CASE WHEN value=0 THEN 1 ELSE 0 END,
+
+value;
+
+5.
+select *
+
+from catalogs
+
+WHERE
+  id IN (5, 1, 2)
+
+ORDER BY
+
+FIELD(id, 5, 1, 2);

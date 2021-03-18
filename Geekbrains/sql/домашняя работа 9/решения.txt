@@ -1,0 +1,104 @@
+1. —оздайте таблицу logs типа Archive. ѕусть при каждом создании записи в таблицах users, catalogs и products в таблицу logs помещаетс€ врем€ и дата создани€ записи, название таблицы, идентификатор первичного ключа и содержимое пол€ name.
+
+DROP TABLE IF EXISTS logs;
+
+CREATE TABLE logs 
+(
+date_time DATETIME,
+
+name_table VARCHAR(255),
+ 
+  id INT UNSIGNED,
+
+  name VARCHAR(255) 
+
+)  ENGINE=Archive;
+
+
+
+DELIMITER //
+
+DROP TRIGGER IF EXISTS logs_users;
+
+CREATE TRIGGER logs_users
+
+ before INSERT ON users
+
+FOR EACH ROW
+
+BEGIN
+
+ insert into logs VALUES (NOW(), 'users', new.id, new.name);
+
+END//
+
+
+DROP TRIGGER IF EXISTS logs_catalogs;
+
+CREATE TRIGGER logs_catalogs
+
+ before INSERT ON catalogs
+
+FOR EACH ROW
+
+BEGIN
+ insert into logs VALUES (NOW(), 'catalogs', new.id, new.name);
+
+END//
+
+
+DROP TRIGGER IF EXISTS logs_products;
+
+CREATE TRIGGER logs_products 
+before INSERT ON products 
+
+FOR EACH ROW
+
+BEGIN
+ insert into logs VALUES (NOW(), 'products', new.id, new.name);
+
+END//
+
+
+INSERT INTO users VALUES (1, '»ван', null, null, null);
+
+INSERT INTO catalogs VALUES (7, 'ћыши');
+
+INSERT INTO products VALUES (4, '∆есткий диск', null, 200, null, null, null);
+
+
+
+
+select *
+from logs;
+
+
+
+2. (по желанию) —оздайте SQL-запрос, который помещает в таблицу users миллион записей.
+
+
+DELIMITER //
+
+DROP PROCEDURE IF EXISTS add_million;
+
+CREATE PROCEDURE add_million ()
+
+BEGIN
+ DECLARE n_1 INT; 
+
+set n_1 = 0;
+
+WHILE n_1 < 1000000 DO
+
+INSERT INTO users VALUES (n_1, null, null, null, null);
+
+SET n_1 = n_1 + 1;
+
+ END WHILE;
+
+END//
+
+
+call add_million ()
+
+«апрос считает настолько долго, что 30 секунд, выдаваемых по умолчанию не хватает. 1000 добавлений считаетс€ за 15,5 сек.
