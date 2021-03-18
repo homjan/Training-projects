@@ -1,0 +1,172 @@
+body{
+    background-color: #f8f8f8; /* Цвет фона веб-страницы */
+   }
+
+.menu{ 
+    list-style-type: none; 
+   /* position: relative;
+     margin-top: 50px;
+    margin-left: 50px;*/
+}
+.menu li{ /* 3. Меню сайта */
+    color: brown;
+    font-size: 24px; 
+    font-style: oblique;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 100px;
+    color: brown;
+    float: left;
+    text-align: right;
+}
+
+.menu li a:hover{
+     color: green;
+    background-color:beige ;
+}
+
+
+
+.heads_catalog{/* 4а заголовки */
+    color: black;
+    font-size: 18px;
+    font-weight: 400;
+    background-color: #eaeaea;
+    clear: both;
+    
+}
+
+.short_description{ /* 4b краткое описание товара */
+    color: #707070;
+    font-size: 14px;
+    font-style: italic;
+    line-height: 16px;
+}
+.short_description_product{ /* 4b краткое описание товара */
+    color: #707070;
+    font-size: 14px;
+    font-style: italic;
+    line-height: 16px;
+}
+
+.long_description{ /* 4с подробное описание товара */
+    color: #484343;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+}
+
+.characteristics{ /* 4d характеристики */
+    font-size: 12px;
+    list-style-image: url(img/characteristics_list.png);
+     clear: both;
+    }
+
+.registration{/* 5 Контакты */
+    height: 30px;
+    width: 300px;    
+    font-size: 18px;
+    background-color: beige;   
+}
+
+
+.registration:hover{
+    background-color:azure ;
+    color: darkgreen;
+    text-transform: capitalize;
+    
+}
+
+
+.long_description:first-letter,
+.short_description_product:first-letter{
+    font-size: 30px;
+    color: brown;
+    font-family:sans-serif;
+    
+}
+
+._blank{
+    border: 3px solid black;
+}
+
+.table0{
+    border: 1px solid #000;
+     width: 400px;
+    height: 200px;
+    border-collapse: collapse;
+    
+}
+td{
+    border: 1px solid #000;
+}
+
+.frame {
+    border: 3px solid green;   
+   }
+
+.frame:hover{
+	border-color: transparent;
+   }
+
+.container{
+    width: 800px;
+     margin: 0 auto;
+}
+
+.header{
+    height: 150px;
+    background: url(img/4.jpg);
+    background-color: beige;
+    
+}
+.logo{
+    width: 100px;
+    height: 100px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    float: left;
+}
+
+menu_list{
+    
+     margin-top: 50px;
+    margin-left: 50px;
+    float: right;
+}
+
+.footer{
+    height: 100px;
+    width: 100%;
+   position: relative;
+    float: left;
+      text-align: right;
+   
+    background-color: blanchedalmond;
+    
+}
+.footer h3{
+    padding-top: 20px;
+    padding-right: 50px;
+}
+/*
+.product{
+    float: left;
+}*/
+.product_image{
+    float:left;
+    margin-right: 15px;
+}
+
+.product_description{
+   padding-left: 150px;
+     margin-left: 150px;    
+}
+.catalog_element1{
+   
+    width: 425px;
+     float:left;
+    padding-right: 30px;
+}

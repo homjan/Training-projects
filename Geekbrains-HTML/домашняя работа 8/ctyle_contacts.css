@@ -1,0 +1,309 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container{
+width: 1366px;
+height: 360px;
+background-color: #f5f5f5;
+    margin: 0 auto;
+}
+
+.slider{
+    height: 300px;
+       position: relative;
+}
+
+.header{
+    padding-top: 63px;
+}
+
+.menu-list{
+    list-style-type: none;
+    float: left;
+}
+.menu-list_22{
+    padding-right: 300px;
+}
+
+.padding-site{
+    padding-left: 98px;
+    padding-right: 98px;
+    
+}
+
+.menu-link{
+color: #8c8c8c;
+font-size: 14px;
+font-weight: 300;
+text-transform: uppercase;
+    padding: 10px 13px;
+      
+
+}
+
+.menu-link:hover{
+    color: #212121;
+}
+
+.menu_link_active {
+ color: #212121;
+font-weight: 700;
+letter-spacing: 1.4px;
+    border-bottom: 3px solid #212121;
+
+}
+
+.menu_Big_Text_1{
+
+color: #212121;
+font-size: 62px;
+font-weight: 400;
+line-height: 72px; 
+  
+}
+
+.menu_Big_Text_1_div{
+    margin-top: 123px;
+}
+
+
+.container2{
+width: 1366px;
+ height: 563px;
+    margin: 0 auto;
+}
+
+.slider2{
+  
+   margin-top: 71px;
+       position: relative;
+}
+
+.slider2_medium_block{
+
+width: 350px;
+height: 350px;
+border: 1px solid #9c9c9c;
+background-color: #ffffff;
+opacity: 0.9;
+    
+    margin-right: 20px;
+    float: left;
+  
+    
+}
+.blob_logo{
+/* Style for "" */
+width: 38px;
+height: 48px;
+padding-top: 38px;
+padding-left: 156px;
+}
+
+.slider2_medium_block_h3{
+color: #212121;
+font-family: icomoon;
+font-size: 24px;
+font-weight: 400;
+line-height: 30px;
+text-transform: uppercase;
+    padding-top: 25px;
+padding-left: 110px;
+}
+.slider2_medium_block_text1{
+color: #6c6c6c;
+font-family: Montserrat;
+font-size: 14px;
+font-weight: 700;
+line-height: 20px;
+    
+  padding-top: 15px;
+padding-left: 150px;
+}
+
+.slider2_medium_block_text2{
+font-size: 14px;
+line-height: 20px;
+color: #212121;
+font-family: "Montserrat - Bold";
+font-weight: 700;
+    
+    
+
+padding-left: 120px;
+    
+}.slider2_medium_block_text3{
+
+color: #6c6c6c;
+font-size: 14px;
+font-weight: 700;
+line-height: 20px;
+font-family: "Montserrat Light";
+font-weight: 300;
+    
+
+padding-left: 60px;
+}
+
+
+.container8{
+    width: 1366px;
+    height: 386px;
+    background-color: #f5f5f5;
+    margin: 0 auto;
+}
+
+slider_x{
+      margin-top: 123px;
+}
+
+.header6{
+    padding-top: 123px;
+}
+
+.slider8-New1{
+
+color: #6c6c6c;
+font-size: 18px;
+font-weight: 700;
+line-height: 24px;
+text-transform: uppercase;
+letter-spacing: 1.8px;
+    float:left;
+    padding-right: 168px;
+}
+
+.slider8-New2{
+
+color: #6c6c6c;
+font-size: 18px;
+font-weight: 700;
+line-height: 24px;
+text-transform: uppercase;
+letter-spacing: 1.8px;
+    float:left;
+    padding-right: 263px;
+}
+.slider8-New3{
+
+color: #6c6c6c;
+font-size: 18px;
+font-weight: 700;
+line-height: 24px;
+text-transform: uppercase;
+letter-spacing: 1.8px;
+   
+}
+
+.slider8_block1{
+    width: 240px;
+     height: 105px;
+    float: left;
+    padding-top: 25px;
+    padding-right: 50px;
+    
+}
+.slider8_block1_text1{
+
+color: #212121;
+font-size: 14px;
+font-weight: 300;
+line-height: 22px; 
+}
+
+.slider8_block2{
+    width: 160px;
+     height: 65px;
+    float: left;
+     padding-top: 25px;
+    padding-right: 53px;
+    
+}
+.slider8_block2_text1{
+color: #212121;
+font-size: 14px;
+font-weight: 700;
+line-height: 26px;
+text-transform: uppercase;
+letter-spacing: 0.7px;   
+}
+.slider8_block3{
+    width: 250px;
+     height: 65px;
+    float: left;
+     padding-top: 25px;
+    padding-right: 45px;
+    
+}
+
+.slider8_block4{
+    width: 370px;
+     height: 65px;
+     float: left;
+     padding-top: 25px;
+    
+    
+}
+.slider8_block2_text2{
+color: #212121;
+font-size: 14px;
+font-weight: 300;
+line-height: 22px;  
+}
+   .registration{
+    height: 36px;
+    width: 300px;    
+    font-size: 18px;
+    background-color:aliceblue;   
+}
+
+.slider8-New4{
+
+color: #6c6c6c;
+font-size: 10px;
+font-weight: 700;
+line-height: 26px;
+text-transform: uppercase;    
+letter-spacing: 0.6px;
+   
+    padding-right: 150px;
+    float: left;
+}
+.slider8-New5{
+
+color: #6c6c6c;
+font-size: 10px;
+font-weight: 700;
+line-height: 26px;
+text-transform: uppercase;    
+letter-spacing: 0.6px;
+   
+    padding-right: 150px;
+    float: left;
+}
+.slider8-New6{
+
+color: #6c6c6c;
+font-size: 10px;
+font-weight: 700;
+line-height: 26px;
+text-transform: uppercase;    
+letter-spacing: 0.6px;
+    float: left;
+    
+    padding-right: 10px;
+   
+}
+
+
+.footer{
+     background-color: #f5f5f5;
+    width: 1200px;
+    margin-left: 150px;
+}
